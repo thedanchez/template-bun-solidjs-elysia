@@ -1,0 +1,57 @@
+{
+  "name": "template-solidjs-elysia",
+  "version": "0.0.0",
+  "description": "Template for SolidJS web app and Elysia BFF layer. Tools include Bun, TypeScript, ESLint, Prettier, Vitest, MSW, Docker and GHA",
+  "type": "module",
+  "scripts": {
+    "build": "bun typecheck && bun build:vite",
+    "build:vite": "vite build",
+    "dev": "vite",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "serve": "vite preview",
+    "start": "vite",
+    "start:msw": "VITE_MSW=true vite",
+    "start:server": "bun backend/server.ts",
+    "test": "bun run test:ui && bun run test:server",
+    "test:ui": "vitest run",
+    "test:ui:cov": "vitest run --coverage",
+    "test:server": "bun test backend",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@solidjs/testing-library": "^0.8.10",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/bun": "^1.1.16",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "@vitest/coverage-istanbul": "^2.1.8",
+    "eslint": "^8.57.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-solid": "^0.14.5",
+    "jsdom": "^26.0.0",
+    "msw": "^2.7.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vite-plugin-solid": "^2.11.0",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "@elysiajs/eden": "^1.2.0",
+    "@elysiajs/static": "^1.2.0",
+    "@solidjs/router": "^0.15.2",
+    "@tanstack/solid-query": "^5.64.1",
+    "elysia": "^1.2.10",
+    "solid-js": "^1.9.4"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}
