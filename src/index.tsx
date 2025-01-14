@@ -30,5 +30,6 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 }
 
 enableMocking().then(() => {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   render(() => <App />, root!);
 });

@@ -1,7 +1,7 @@
 import { treaty } from "@elysiajs/eden";
 import { describe, expect, it } from "vitest";
 
-import { app } from "../server";
+import { app } from "..";
 
 const api = treaty(app);
 

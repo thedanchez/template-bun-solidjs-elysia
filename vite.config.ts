@@ -8,7 +8,7 @@ const TEST_EXCLUDES = [
   "src/index.tsx",
   "src/mocks",
   "public",
-  "backend",
+  "server",
 ];
 const COVERAGE_EXCLUDE = [...TEST_EXCLUDES, "**/*.test.{ts,tsx}"];
 
