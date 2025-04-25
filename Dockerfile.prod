@@ -1,4 +1,4 @@
-FROM oven/bun:1.2.10-slim
+FROM oven/bun:1.2.10-slim AS builder
 
 WORKDIR /app
 
@@ -21,6 +21,16 @@ COPY server ./server
 
 RUN bun run build
 
+# Production stage
+FROM oven/bun:1.2.10-alpine
+
+WORKDIR /app
+
+# Copy only the necessary built files
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/app-server ./
+
 EXPOSE 8000
 
-CMD ["bun", "start:server"]
+CMD ["./app-server"]

@@ -3,13 +3,7 @@ import solidPlugin from "vite-plugin-solid";
 import { configDefaults, defineConfig as defineVitestConfig } from "vitest/config";
 
 // We exclude the backend directory because we use Bun (not Vitest) to run those tests
-const TEST_EXCLUDES = [
-  ...configDefaults.exclude,
-  "src/index.tsx",
-  "src/mocks",
-  "public",
-  "server",
-];
+const TEST_EXCLUDES = [...configDefaults.exclude, "src/index.tsx", "src/mocks", "public", "server"];
 const COVERAGE_EXCLUDE = [...TEST_EXCLUDES, "**/*.test.{ts,tsx}"];
 
 const viteConfig = defineViteConfig({
